@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Near Pick | 온보딩</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/onboarding.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="app onboarding">
+        <header class="onboarding__header">
+            <div class="onboarding__logo">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 0C7.58 0 4 3.58 4 8c0 5.25 7 13 8 16 1-3 8-10.75 8-16 0-4.42-3.58-8-8-8zm0 11c-1.66 0-3-1.34-3-3s1.34-3 3-3 3 1.34 3 3-1.34 3-3 3z"/>
+                </svg>
+            </div>
+            <h1 class="onboarding__title">
+                친구들이 저장한<br>진짜 맛집을 찾으세요.
+            </h1>
+        </header>
+
+        <section class="onboarding__categories">
+            <article class="onboarding-card">
+                <span class="onboarding-card__icon" style="color: #69C28E;">👥</span>
+                <h2 class="onboarding-card__title">친구 추천</h2>
+                <p class="onboarding-card__desc">친구들이 자주 가고<br>저장한 곳 추천</p>
+            </article>
+            <article class="onboarding-card">
+                <span class="onboarding-card__icon" style="color: #FF8F4D;">🔥</span>
+                <h2 class="onboarding-card__title">전체 사용자 인기</h2>
+                <p class="onboarding-card__desc">네이비 뮤레이스<br>인기 장소 추천</p>
+            </article>
+            <article class="onboarding-card">
+                <span class="onboarding-card__icon" style="color: #FFC145;">👑</span>
+                <h2 class="onboarding-card__title">인플루언서 픽</h2>
+                <p class="onboarding-card__desc">맛집 큐레이터의<br>추천 장소</p>
+            </article>
+        </section>
+
+        <div class="onboarding__indicators">
+            <div class="indicator indicator--active"></div>
+            <div class="indicator"></div>
+            <div class="indicator"></div>
+        </div>
+
+        <section class="onboarding__preview">
+            <div class="preview-box">
+                <div class="preview-box__header">
+                    <h2 class="preview-box__title">친구 추천 <span>›</span></h2>
+                </div>
+                <div class="preview-list">
+                    <div class="preview-item">
+                        <div class="preview-item__icon">👥</div>
+                        <div class="preview-item__text">카페 3명 저장<br><small style="font-weight: 400; color: #888;">평점 카페</small></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer class="onboarding__footer">
+            <a href="login.html" class="cta-button">시작하기</a>
+            <div class="onboarding__indicators" style="margin-top: 20px; margin-bottom: 0;">
+                <div class="indicator indicator--active"></div>
+                <div class="indicator"></div>
+                <div class="indicator"></div>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>
