@@ -17,8 +17,12 @@
 }
 
 .onboarding-header .logo {
-    width: 64px;
-    height: 64px;
+    width: 80px;
+    height: 80px;
+    background-color: #FFFFFF;
+    padding: 12px;
+    border-radius: 20px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
 }
 .onboarding-header .app-logo {
     width: 100%;

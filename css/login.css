@@ -28,13 +28,17 @@
   display: flex;
   justify-content: center;
   margin-top: 32px;
-  margin-bottom: 24px;
+  margin-bottom: 32px;
 }
 
 .app-logo {
-  width: 120px;
-  height: 120px;
+  width: 160px;
+  height: 160px;
   object-fit: contain;
+  background-color: #FFFFFF;
+  padding: 20px;
+  border-radius: 40px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.06);
 }
 
 .login-title {
