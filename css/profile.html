@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Near Pick | 프로필</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/profile.css"> <!-- New matching CSS -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="app profile-app">
+        
+        <!-- Profile Header Area -->
+        <header class="profile-header">
+            <div class="profile-main">
+                <div class="profile-avatar">
+                    <img src="https://i.pravatar.cc/150?u=user" alt="프로필">
+                </div>
+                <div class="profile-info">
+                    <h1 class="profile-name">지우 <span>지우#1024</span></h1>
+                    <div class="profile-stats">
+                        <div class="stat"><span class="num">12</span><span class="label">내가 저장한 맛집</span></div>
+                        <div class="stat-divider"></div>
+                        <div class="stat"><span class="num">48</span><span class="label">팔로워</span></div>
+                    </div>
+                </div>
+            </div>
+            <button class="btn-profile-edit">프로필 편집</button>
+        </header>
+
+        <!-- Profile Content Sections -->
+        <main class="profile-content">
+            
+            <!-- Anonymous Mode Toggle -->
+            <section class="settings-block highlight-block">
+                <div class="setting-item">
+                    <div class="setting-info">
+                        <h3>익명 모드</h3>
+                        <p>다른 사람의 지도에 내 아바타를 숨깁니다.</p>
+                    </div>
+                    <!-- Apple iOS Style Toggle Switch -->
+                    <label class="ios-switch">
+                        <input type="checkbox" checked>
+                        <span class="slider round"></span>
+                    </label>
+                </div>
+            </section>
+
+            <!-- Activity Block -->
+            <section class="settings-block">
+                <h2 class="block-title">내 활동</h2>
+                <div class="setting-item clickable">
+                    <div class="setting-icon bg-orange">🔖</div>
+                    <div class="setting-info">
+                        <h3>방문한 장소 보관함</h3>
+                    </div>
+                    <span class="chevron">›</span>
+                </div>
+                <div class="setting-item clickable">
+                    <div class="setting-icon bg-blue">⏱️</div>
+                    <div class="setting-info">
+                        <h3>최근 본 장소</h3>
+                        <p>동작대교 구름카페 외 3곳</p>
+                    </div>
+                    <span class="chevron">›</span>
+                </div>
+            </section>
+
+            <!-- Account Settings Block -->
+            <section class="settings-block">
+                <h2 class="block-title">계정 및 설정</h2>
+                <div class="setting-item clickable">
+                    <div class="setting-info">
+                        <h3>연동된 소셜 계정</h3>
+                        <p>카카오 로그인 연동됨</p>
+                    </div>
+                    <span class="info-badge">연동완료</span>
+                </div>
+                <div class="setting-item clickable">
+                    <div class="setting-info">
+                        <h3>알림 설정</h3>
+                        <p>친구 활동 알림, 마케팅 정보</p>
+                    </div>
+                    <span class="chevron">›</span>
+                </div>
+                <div class="setting-item clickable">
+                    <div class="setting-info">
+                        <h3>고객센터</h3>
+                        <p>공지사항 및 자주 묻는 질문</p>
+                    </div>
+                    <span class="chevron">›</span>
+                </div>
+                <div class="setting-item logout-item">
+                    로그아웃
+                </div>
+            </section>
+            
+            <div class="bottom-spacer"></div>
+        </main>
+
+        <!-- New Bottom Navigation -->
+        <nav class="bottom-tab-bar">
+            <a href="home.html" class="tab-item">
+                <svg class="tab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                    <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                </svg>
+                <span class="tab-label">홈</span>
+            </a>
+            <a href="index.html" class="tab-item">
+                <svg class="tab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"></polygon>
+                    <line x1="8" y1="2" x2="8" y2="18"></line>
+                    <line x1="16" y1="6" x2="16" y2="22"></line>
+                </svg>
+                <span class="tab-label">지도</span>
+            </a>
+            
+            <div class="tab-item tab-fab-container">
+                <button class="tab-fab">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                        <line x1="12" y1="5" x2="12" y2="19"></line>
+                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                    </svg>
+                </button>
+            </div>
+
+            <a href="list.html" class="tab-item">
+                <svg class="tab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path>
+                </svg>
+                <span class="tab-label">리스트</span>
+            </a>
+            <a href="profile.html" class="tab-item tab-item--active">
+                <svg class="tab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                    <circle cx="12" cy="7" r="4"></circle>
+                </svg>
+                <span class="tab-label">나</span>
+            </a>
+        </nav>
+    </div>
+</body>
+</html>

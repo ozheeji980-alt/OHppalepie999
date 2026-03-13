@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Near Pick | 리스트</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/home.css"> <!-- Reusing Feed UI styles -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="app home-app">
+        <!-- Simple Header -->
+        <header class="home-header" style="border-bottom: 1px solid var(--border-color); padding-bottom: 16px;">
+            <h1 style="font-size: 24px; font-weight: 800; color: var(--text-main);">추천 플레이스 모아보기 <span style="font-size: 20px;">🗓️</span></h1>
+        </header>
+
+        <!-- Main Scrolling Content using vertical feed blocks -->
+        <main class="home-content">
+            
+            <!-- Section 1: Nearby Places -->
+            <section class="feed-section">
+                <div class="section-header">
+                    <h2 class="section-title">내 주변 맛집 <span class="emoji">📍</span></h2>
+                </div>
+                <div class="horizontal-scroll">
+                    <article class="feed-card feed-card--large">
+                        <div class="card-image" style="background: linear-gradient(135deg, #FFE8E5, #FFC9C2);"></div>
+                        <div class="card-info">
+                            <h3 class="card-title">진작 다이닝</h3>
+                            <p class="card-meta">성수동 · 퓨전일식 | 500m</p>
+                            <span class="stat-star">⭐ 4.8</span>
+                        </div>
+                    </article>
+                    <article class="feed-card feed-card--large">
+                        <div class="card-image" style="background: linear-gradient(135deg, #FFF0D6, #FFDB99);"></div>
+                        <div class="card-info">
+                            <h3 class="card-title">성수다락</h3>
+                            <p class="card-meta">성수동 · 양식 | 800m</p>
+                            <span class="stat-star">⭐ 4.7</span>
+                        </div>
+                    </article>
+                </div>
+            </section>
+
+            <!-- Section 2: High Foot-Traffic -->
+            <section class="feed-section">
+                <div class="section-header">
+                    <h2 class="section-title">현재 방문이 많은 플레이스 <span class="emoji">🏃</span></h2>
+                    <a href="#" class="section-more">더보기 <span>›</span></a>
+                </div>
+                <div class="vertical-list">
+                    <article class="list-card">
+                        <div class="list-card__image" style="background: linear-gradient(135deg, #E5FFE8, #B3FFBF);">
+                        </div>
+                        <div class="list-card__info">
+                            <h3 class="list-card__title">오브제 카페</h3>
+                            <p class="list-card__meta">망원동 · 현재 15명 시청중</p>
+                            <div class="list-card__tags">
+                                <span class="tag">웨이팅 심함</span>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="list-card">
+                        <div class="list-card__image" style="background: linear-gradient(135deg, #E5F0FF, #B3D4FF);">
+                        </div>
+                        <div class="list-card__info">
+                            <h3 class="list-card__title">어니언 성수</h3>
+                            <p class="list-card__meta">성수동 · 방문객 급증</p>
+                            <div class="list-card__tags">
+                                <span class="tag">핫플레이스</span>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </section>
+
+             <!-- Section 3: Trending via Traffic -->
+             <section class="feed-section">
+                <div class="section-header">
+                    <h2 class="section-title">트래픽 기반 인기 장소 <span class="emoji">📈</span></h2>
+                </div>
+                <div class="horizontal-scroll">
+                    <article class="feed-card feed-card--standard">
+                        <div class="card-image" style="background: linear-gradient(135deg, #FFF0D6, #FFDB99);"></div>
+                        <div class="card-info">
+                            <h3 class="card-title">몽탄</h3>
+                            <p class="card-meta">삼각지 · 검색량 1위</p>
+                        </div>
+                    </article>
+                    <article class="feed-card feed-card--standard">
+                        <div class="card-image" style="background: linear-gradient(135deg, #FFF9E5, #FFE699);"></div>
+                        <div class="card-info">
+                            <h3 class="card-title">런던베이글</h3>
+                            <p class="card-meta">안국동 · 트렌드 극상승</p>
+                        </div>
+                    </article>
+                    <article class="feed-card feed-card--standard">
+                        <div class="card-image" style="background: linear-gradient(135deg, #F0E5FF, #D1B3FF);"></div>
+                        <div class="card-info">
+                            <h3 class="card-title">노티드 도넛</h3>
+                            <p class="card-meta">청담동 · 꾸준한 인기</p>
+                        </div>
+                    </article>
+                </div>
+            </section>
+
+             <!-- Section 4: Personalized Recommendations -->
+             <section class="feed-section feed-section--gray">
+                <div class="section-header">
+                    <h2 class="section-title">지우님을 위한 추천 가게 <span class="emoji">🎁</span></h2>
+                </div>
+                <div class="vertical-list">
+                    <article class="list-card">
+                        <div class="list-card__image" style="background: linear-gradient(135deg, #FFE8E5, #FFC9C2);"></div>
+                        <div class="list-card__info">
+                            <h3 class="list-card__title">카멜커피 7호점</h3>
+                            <p class="list-card__meta">도산공원 · 취향 저격 98%</p>
+                            <div class="list-card__tags">
+                                <span class="tag">최근 조회한 곳과 비슷해요</span>
+                            </div>
+                        </div>
+                        <button class="btn-save-circle">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path>
+                            </svg>
+                        </button>
+                    </article>
+                </div>
+            </section>
+
+            <!-- Padding for bottom nav -->
+            <div class="bottom-spacer"></div>
+        </main>
+
+        <!-- New Bottom Navigation -->
+        <nav class="bottom-tab-bar">
+            <a href="home.html" class="tab-item">
+                <svg class="tab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                    <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                </svg>
+                <span class="tab-label">홈</span>
+            </a>
+            <a href="index.html" class="tab-item">
+                <svg class="tab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"></polygon>
+                    <line x1="8" y1="2" x2="8" y2="18"></line>
+                    <line x1="16" y1="6" x2="16" y2="22"></line>
+                </svg>
+                <span class="tab-label">지도</span>
+            </a>
+            
+            <div class="tab-item tab-fab-container">
+                <button class="tab-fab">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                        <line x1="12" y1="5" x2="12" y2="19"></line>
+                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                    </svg>
+                </button>
+            </div>
+
+            <a href="list.html" class="tab-item tab-item--active">
+                <svg class="tab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path>
+                </svg>
+                <span class="tab-label">리스트</span>
+            </a>
+            <a href="profile.html" class="tab-item">
+                <svg class="tab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                    <circle cx="12" cy="7" r="4"></circle>
+                </svg>
+                <span class="tab-label">나</span>
+            </a>
+        </nav>
+    </div>
+</body>
+</html>
