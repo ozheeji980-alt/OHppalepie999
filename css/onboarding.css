@@ -24,10 +24,6 @@
 .onboarding-header .logo {
     width: 120px;
     height: 120px;
-    background-color: #FFFFFF;
-    padding: 20px;
-    border-radius: 32px;
-    box-shadow: 0 8px 24px rgba(0,0,0,0.08);
     margin: 16px auto 0;
     display: flex;
     justify-content: center;
