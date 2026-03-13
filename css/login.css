@@ -1,104 +1,138 @@
 :root {
-  --color-naver: #03c75a;
-  --color-naver-text: #ffffff;
-  --color-kakao: #fee500;
+  --color-kakao: #FEE500;
   --color-kakao-text: #191919;
+  --color-naver: #03C75A;
+  --color-naver-text: #FFFFFF;
+  --color-apple: #000000;
+  --color-apple-text: #FFFFFF;
+  --color-google: #FFFFFF;
+  --color-google-text: #3C4043;
+  --color-google-border: #DADCE0;
 }
 
-.login {
-  background-color: var(--color-white);
-  padding: calc(var(--safe-area-top) + 40px) 24px var(--safe-area-bottom);
+.login-app {
+  background-color: #ffffff;
+  padding: calc(var(--safe-area-top) + 60px) 24px calc(var(--safe-area-bottom) + 30px);
   display: flex;
   flex-direction: column;
   height: 100vh;
 }
 
-.login__header {
-  margin-bottom: 60px;
-  text-align: center;
+/* Header & Typography */
+.login-header {
+  margin-bottom: 40px;
 }
 
-.login__logo {
-  width: 48px;
-  height: 48px;
-  margin: 0 auto 24px;
-  color: var(--color-friend-coral);
+.logo-container {
+  width: 100%;
   display: flex;
-  align-items: center;
   justify-content: center;
+  margin-top: 32px;
+  margin-bottom: 24px;
 }
 
-.login__header img {
+.app-logo {
   width: 120px;
   height: 120px;
-  object-fit: cover;
-  border-radius: 60px;
-  margin: 24px auto;
-  display: block;
-  filter: blur(2px) brightness(0.9);
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  object-fit: contain;
 }
 
-.login__title {
-  font-size: 24px;
+.login-title {
+  font-size: 28px;
   font-weight: 800;
-  line-height: 1.4;
+  line-height: 1.35;
+  letter-spacing: -0.8px;
   color: var(--color-gray-900);
+  margin-bottom: 12px;
 }
 
-.login__subtitle {
-  font-size: 15px;
+.login-subtitle {
+  font-size: 16px;
+  line-height: 1.5;
   color: var(--color-gray-600);
-  margin-top: 12px;
+  font-weight: 500;
 }
 
-.login__actions {
+/* SNS Login Actions */
+.login-actions {
   margin-top: auto;
   display: flex;
   flex-direction: column;
   gap: 12px;
-  margin-bottom: 40px;
+  margin-bottom: 30px;
 }
 
-.login-btn {
+.sns-btn {
   width: 100%;
-  padding: 16px;
-  border-radius: 12px;
+  height: 56px;
+  border-radius: 16px;
   font-size: 16px;
-  font-weight: 700;
+  font-weight: 600;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 10px;
-  transition: opacity 0.2s;
+  position: relative;
+  text-decoration: none;
+  transition: opacity 0.2s, transform 0.2s;
+  border: none;
 }
 
-.login-btn:active {
-  opacity: 0.8;
+.sns-btn:active {
+  opacity: 0.9;
+  transform: scale(0.98);
 }
 
-.login-btn--naver {
-  background-color: var(--color-naver);
-  color: var(--color-naver-text);
+.sns-icon {
+  position: absolute;
+  left: 20px;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.login-btn--kakao {
+.sns-icon--naver-text {
+  font-weight: 900;
+  font-family: Arial, sans-serif;
+  font-size: 18px;
+}
+
+/* Brand Specific Styles */
+.sns-btn--kakao {
   background-color: var(--color-kakao);
   color: var(--color-kakao-text);
 }
 
-.login-btn__icon {
-  width: 20px;
-  height: 20px;
+.sns-btn--naver {
+  background-color: var(--color-naver);
+  color: var(--color-naver-text);
 }
 
-.login__footer {
+.sns-btn--apple {
+  background-color: var(--color-apple);
+  color: var(--color-apple-text);
+}
+
+.sns-btn--google {
+  background-color: var(--color-google);
+  color: var(--color-google-text);
+  border: 1px solid var(--color-google-border);
+}
+
+/* Footer & Policy */
+.login-footer {
   text-align: center;
-  font-size: 13px;
-  color: var(--color-gray-600);
 }
 
-.login__footer-link {
+.login-policy {
+  font-size: 12px;
+  color: var(--color-gray-600);
+  line-height: 1.5;
+}
+
+.login-policy a {
+  color: var(--color-gray-900);
   text-decoration: underline;
-  margin-left: 4px;
+  font-weight: 600;
 }
