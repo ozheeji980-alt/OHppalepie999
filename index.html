@@ -7,9 +7,6 @@
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/map.css">
-    <!-- Leaflet.js for real interactive map -->
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
-    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -32,8 +29,10 @@
 
         <!-- Main Map Area (Fullscreen) -->
         <main class="map-view">
-            <!-- Real Interactive Map via Leaflet.js -->
-            <div id="leaflet-map"></div>
+            <!-- Simple Tile Map: Draggable OSM tiles -->
+            <div id="tile-map">
+                <div id="tile-canvas"></div>
+            </div>
 
             <!-- Custom Map Pins -->
             
@@ -161,24 +160,66 @@
         </nav>
     </div>
 
-    <!-- Leaflet Map Initialization -->
+    <!-- Simple Draggable Tile Map Script -->
     <script>
-      // Initialize map centered on Euljiro, Seoul (을지로)
-      const map = L.map('leaflet-map', {
-        center: [37.5665, 126.9780],
-        zoom: 16,
-        zoomControl: false,
-        attributionControl: false
-      });
+      (function() {
+        const TILE_SIZE = 256;
+        const ZOOM = 16;
+        // Seoul Euljiro center
+        const CENTER_LAT = 37.5665;
+        const CENTER_LNG = 126.9780;
 
-      // Use CartoDB Positron tiles - clean, minimal map similar to Naver's light theme
-      L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
-        subdomains: 'abcd',
-        maxZoom: 20
-      }).addTo(map);
+        function latLngToTile(lat, lng, z) {
+          const x = Math.floor((lng + 180) / 360 * Math.pow(2, z));
+          const y = Math.floor((1 - Math.log(Math.tan(lat * Math.PI / 180) + 1 / Math.cos(lat * Math.PI / 180)) / Math.PI) / 2 * Math.pow(2, z));
+          return { x, y };
+        }
 
-      // Disable double-click zoom for cleaner UX
-      map.doubleClickZoom.disable();
+        const wrapper = document.getElementById('tile-map');
+        const canvas = document.getElementById('tile-canvas');
+        const W = wrapper.offsetWidth || window.innerWidth;
+        const H = wrapper.offsetHeight || window.innerHeight;
+
+        const tilesX = Math.ceil(W / TILE_SIZE) + 3;
+        const tilesY = Math.ceil(H / TILE_SIZE) + 3;
+
+        const center = latLngToTile(CENTER_LAT, CENTER_LNG, ZOOM);
+        let offsetX = -Math.floor(tilesX / 2) * TILE_SIZE;
+        let offsetY = -Math.floor(tilesY / 2) * TILE_SIZE;
+
+        canvas.style.position = 'absolute';
+        canvas.style.width = (tilesX * TILE_SIZE) + 'px';
+        canvas.style.height = (tilesY * TILE_SIZE) + 'px';
+        canvas.style.left = (W / 2 - (tilesX / 2) * TILE_SIZE) + 'px';
+        canvas.style.top = (H / 2 - (tilesY / 2) * TILE_SIZE) + 'px';
+
+        for (let ty = 0; ty < tilesY; ty++) {
+          for (let tx = 0; tx < tilesX; tx++) {
+            const tileX = center.x - Math.floor(tilesX / 2) + tx;
+            const tileY = center.y - Math.floor(tilesY / 2) + ty;
+            const subdomains = ['a', 'b', 'c'];
+            const s = subdomains[(tileX + tileY) % 3];
+            const img = document.createElement('img');
+            img.src = `https://${s}.tile.openstreetmap.org/${ZOOM}/${tileX}/${tileY}.png`;
+            img.style.cssText = `position:absolute;width:${TILE_SIZE}px;height:${TILE_SIZE}px;left:${tx*TILE_SIZE}px;top:${ty*TILE_SIZE}px;`;
+            img.draggable = false;
+            canvas.appendChild(img);
+          }
+        }
+
+        // Drag-to-pan
+        let dragging = false, startX, startY, startLeft, startTop;
+        function getLeft() { return parseInt(canvas.style.left) || 0; }
+        function getTop()  { return parseInt(canvas.style.top)  || 0; }
+
+        wrapper.addEventListener('mousedown',  e => { dragging = true; startX = e.clientX; startY = e.clientY; startLeft = getLeft(); startTop = getTop(); });
+        window.addEventListener('mousemove',   e => { if (!dragging) return; canvas.style.left = (startLeft + e.clientX - startX) + 'px'; canvas.style.top = (startTop + e.clientY - startY) + 'px'; });
+        window.addEventListener('mouseup',     () => dragging = false);
+
+        wrapper.addEventListener('touchstart', e => { const t = e.touches[0]; dragging = true; startX = t.clientX; startY = t.clientY; startLeft = getLeft(); startTop = getTop(); }, {passive: true});
+        window.addEventListener('touchmove',   e => { if (!dragging) return; const t = e.touches[0]; canvas.style.left = (startLeft + t.clientX - startX) + 'px'; canvas.style.top = (startTop + t.clientY - startY) + 'px'; }, {passive: true});
+        window.addEventListener('touchend',    () => dragging = false);
+      })();
     </script>
 </body>
 </html>
