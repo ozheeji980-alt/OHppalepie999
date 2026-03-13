@@ -7,6 +7,9 @@
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/map.css">
+    <!-- Leaflet.js for real interactive map -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -29,8 +32,8 @@
 
         <!-- Main Map Area (Fullscreen) -->
         <main class="map-view">
-            <!-- Mock Map Background using CSS Gradient -->
-            <div class="map-background"></div>
+            <!-- Real Interactive Map via Leaflet.js -->
+            <div id="leaflet-map"></div>
 
             <!-- Custom Map Pins -->
             
@@ -157,5 +160,25 @@
             </a>
         </nav>
     </div>
+
+    <!-- Leaflet Map Initialization -->
+    <script>
+      // Initialize map centered on Euljiro, Seoul (을지로)
+      const map = L.map('leaflet-map', {
+        center: [37.5665, 126.9780],
+        zoom: 16,
+        zoomControl: false,
+        attributionControl: false
+      });
+
+      // Use CartoDB Positron tiles - clean, minimal map similar to Naver's light theme
+      L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+        subdomains: 'abcd',
+        maxZoom: 20
+      }).addTo(map);
+
+      // Disable double-click zoom for cleaner UX
+      map.doubleClickZoom.disable();
+    </script>
 </body>
 </html>
